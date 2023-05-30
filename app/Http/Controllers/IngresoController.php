@@ -2,22 +2,22 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\categoria;
+use App\Models\ingreso;
 use Illuminate\Http\Request;
 
-class CategoriaController extends Controller
+class IngresoController extends Controller
 {
 
 
 
     public function list()
     {
-        return categoria::all();
+        return ingreso::all();
     }
 
     public function getById($id)
     {
-        return categoria::findOrFail($id);
+        return ingreso::findOrFail($id);
     }
 
 }

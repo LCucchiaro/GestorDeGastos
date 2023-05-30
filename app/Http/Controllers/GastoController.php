@@ -2,22 +2,22 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\categoria;
+use App\Models\gasto;
 use Illuminate\Http\Request;
 
-class CategoriaController extends Controller
+class GastoController extends Controller
 {
 
 
 
     public function list()
     {
-        return categoria::all();
+        return gasto::all();
     }
 
     public function getById($id)
     {
-        return categoria::findOrFail($id);
+        return gasto::findOrFail($id);
     }
 
 }

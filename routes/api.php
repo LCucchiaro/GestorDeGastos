@@ -1,6 +1,9 @@
 <?php
 
 use App\Http\Controllers\CategoriaController;
+use App\Http\Controllers\GastoController;
+use App\Http\Controllers\IngresoController;
+use App\Http\Controllers\AuthController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -19,5 +22,18 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+Route::group(['middleware' => 'auth:sanctum'], function () {
 
-Route::get('Categoria',[CategoriaController::class. 'list']);
+    Route::get('/categoria', [CategoriaController::class, 'list']);
+});
+
+
+Route::get('/categoria/{id}',[CategoriaController::class, 'getById']);
+
+Route::get('/gasto',[GastoController::class, 'list']);
+Route::get('/gasto/{id}',[GastoController::class, 'getById']);
+
+Route::get('/ingreso',[IngresoController::class, 'list']);
+Route::get('/ingreso/{id}',[IngresoController::class, 'getById']);
+
+Route::post('/login', [AuthController::class, 'login']);
